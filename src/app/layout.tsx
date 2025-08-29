@@ -1,30 +1,28 @@
-import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import "./globals.css";
-import { Providers } from "@/components/templates/Providers";
-import "@mantine/core/styles.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Header from "@/components/organisms/Header";
+import Footer from "@/components/organisms/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GLOMIKS",
-  description: "Glomiks preview web",
+  title: "Glomiks - PT. Global Mitra Karya Sejati",
+  description:
+    "Leading Indonesian energy provider and services company specializing in engineering, construction, inspection, and technical services.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>
-        <Providers>
-          <main className={geistSans.className}>{children}</main>
-        </Providers>
+      <body className={inter.className}>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

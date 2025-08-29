@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface StaticMapProps {
@@ -18,7 +19,7 @@ const StaticMap: React.FC<StaticMapProps> = ({
   const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=${zoom}&size=${size}&markers=color:red%7C${latitude},${longitude}&key=${apiKey}`;
 
   return (
-    <img
+    <Image
       src={mapUrl}
       alt="Lokasi Glomiks"
       style={{ maxWidth: "100%", height: "auto" }}
